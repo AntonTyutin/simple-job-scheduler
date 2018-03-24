@@ -1,0 +1,4 @@
+# listen_and_do /event/file/to/listen command args
+
+listen_and_do /events/evnt-1 ping.sh '#1'
+listen_and_do /events/evnt-2 ping.sh '#2'

@@ -1,0 +1,11 @@
+version: "2"
+services:
+    job-dispatcher:
+        image: docker:${DOCKER_VERSION}
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ../src:/scheduler
+            - ${WORKERS_DIR}:/workers
+            - ${EVENTS_DIR}:/events
+        command: sh scheduler/.dispatcher.sh /workers/.workers.list
+        network_mode: "none"

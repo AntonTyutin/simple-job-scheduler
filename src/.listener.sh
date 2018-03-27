@@ -27,7 +27,7 @@ do
 
         echo '--' $(date) "$COMMAND_FILE" "$@"
 
-        echo "$EVENT_DATA" | "$COMMAND_FILE" "$@" || err 'failure'
+        echo "$EVENT_DATA" | TIME="^^ %C %E" time "$COMMAND_FILE" "$@" || err 'failure'
     else
         sleep 3
     fi
